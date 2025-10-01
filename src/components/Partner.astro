@@ -1,0 +1,74 @@
+---
+const partners = [
+	{ name: 'Binance', logo: '/binance.png' },
+	{ name: 'Bybit', logo: '/bybit-logo.svg' },
+	{ name: 'Bitget', logo: '/bitget.png' },
+	{ name: 'Gate.io', logo: '/gate.svg' },
+	{ name: 'WOO', logo: '/woo.png' },
+	{ name: 'Upbit', logo: '/upbit.svg' }
+];
+---
+
+<div class="partner-grid">
+	<div class="partner-track">
+		{partners.map((partner) => (
+			<div class="partner-item">
+				<img src={partner.logo} alt={partner.name} loading="lazy" />
+			</div>
+		))}
+		{partners.map((partner) => (
+			<div class="partner-item">
+				<img src={partner.logo} alt={partner.name} loading="lazy" />
+			</div>
+		))}
+	</div>
+</div>
+
+<style>
+	.partner-grid {
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+		padding: 2rem 0;
+	}
+
+	.partner-track {
+		display: flex;
+		gap: 4rem;
+		animation: scroll 30s linear infinite;
+	}
+
+	.partner-item {
+		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 180px;
+		height: 80px;
+		padding: 1rem;
+		background: rgba(255, 255, 255, 0.03);
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.partner-item img {
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: contain;
+		filter: grayscale(100%) brightness(0.8);
+		transition: filter 0.3s;
+	}
+
+	.partner-item:hover img {
+		filter: grayscale(0%) brightness(1);
+	}
+
+	@keyframes scroll {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+</style>

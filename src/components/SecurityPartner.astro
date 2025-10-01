@@ -1,0 +1,55 @@
+---
+const securityPartners = [
+	{ name: 'Guardian', logo: '/guardian.webp' },
+	{ name: 'Orderly', logo: '/orderly-logo.svg' },
+	{ name: 'YZiLab', logo: '/yzilab.svg' }
+];
+---
+
+<div class="security-partners">
+	{securityPartners.map((partner) => (
+		<div class="security-partner-card">
+			<img src={partner.logo} alt={partner.name} />
+			<span class="partner-name">{partner.name}</span>
+		</div>
+	))}
+</div>
+
+<style>
+	.security-partners {
+		display: flex;
+		justify-content: center;
+		gap: 3rem;
+		flex-wrap: wrap;
+	}
+
+	.security-partner-card {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		padding: 2rem;
+		background: rgba(102, 126, 234, 0.1);
+		border-radius: 16px;
+		border: 1px solid rgba(102, 126, 234, 0.3);
+		min-width: 160px;
+		transition: all 0.3s;
+	}
+
+	.security-partner-card:hover {
+		transform: translateY(-5px);
+		border-color: rgba(102, 126, 234, 0.6);
+		box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+	}
+
+	.security-partner-card img {
+		width: 80px;
+		height: 80px;
+		object-fit: contain;
+	}
+
+	.partner-name {
+		font-weight: 600;
+		color: #667eea;
+	}
+</style>
